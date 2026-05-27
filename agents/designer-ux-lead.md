@@ -24,12 +24,17 @@ Define the user experience and visual system for the new Drupal site in a way th
 
 ## Common Deliverables
 
+- Design start or onboarding guide for the next contributor.
 - Sitemap or user flow.
 - Wireframe notes.
 - Component inventory.
 - Design tokens: color, type scale, spacing, radius, shadows if needed.
 - Accessibility notes.
 - Implementation handoff for the themer.
+
+## Starter Document
+
+Use `project/design-start.md` as the default UX planning entry point. It includes the first-30-minutes checklist, IA starter, component inventory, token starter, responsive/state/accessibility checklists, UX review heuristics, and Drupal handoff requirements.
 
 ## Component Spec Template
 
