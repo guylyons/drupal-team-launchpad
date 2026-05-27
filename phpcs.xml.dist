@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<ruleset name="Drupal Team Launchpad">
+  <description>Drupal coding standards for custom PHP, module, theme, install, and profile code.</description>
+
+  <arg name="colors"/>
+  <arg name="parallel" value="8"/>
+  <arg value="p"/>
+
+  <file>.</file>
+
+  <exclude-pattern>*/.git/*</exclude-pattern>
+  <exclude-pattern>*/.ddev/*</exclude-pattern>
+  <exclude-pattern>*/.codegraph/*</exclude-pattern>
+  <exclude-pattern>*/node_modules/*</exclude-pattern>
+  <exclude-pattern>*/vendor/*</exclude-pattern>
+  <exclude-pattern>*/web/core/*</exclude-pattern>
+  <exclude-pattern>*/web/modules/contrib/*</exclude-pattern>
+  <exclude-pattern>*/web/themes/contrib/*</exclude-pattern>
+  <exclude-pattern>*/web/profiles/contrib/*</exclude-pattern>
+  <exclude-pattern>*/web/sites/*/files/*</exclude-pattern>
+  <exclude-pattern>*/web/sites/*/private/*</exclude-pattern>
+
+  <rule ref="Drupal"/>
+  <rule ref="DrupalPractice"/>
+
+  <config name="drupal_core_version" value="11"/>
+  <arg name="extensions" value="php,module,inc,install,test,profile,theme"/>
+</ruleset>

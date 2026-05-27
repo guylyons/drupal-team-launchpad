@@ -73,7 +73,7 @@ Verification:
 ### T005: Theme scaffold plan
 
 Owner: Drupal Themer
-Status: proposed
+Status: review
 
 Context: Theme implementation should wait for baseline decisions but can be planned now.
 
@@ -85,6 +85,7 @@ Acceptance criteria:
 
 Verification:
 
+- Theme tooling plan added in `project/theme-tooling.md`.
 - Designer and Module Developer review handoff assumptions.
 
 ## Parking Lot

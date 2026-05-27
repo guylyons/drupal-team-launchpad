@@ -55,18 +55,27 @@
 
 When tooling exists, run it. If tooling does not exist yet, document manual checks.
 
-Preferred future checks:
+Preferred current checks:
+
+```bash
+composer validate
+composer audit
+composer lint:php
+composer format:php
+fnm use
+pnpm install --frozen-lockfile
+pnpm format:check
+pnpm lint
+pnpm format
+```
+
+Preferred future Drupal app checks after Composer scaffold exists:
 
 ```bash
 ddev composer validate
 ddev composer audit
 ddev exec vendor/bin/phpcs
 ddev exec vendor/bin/phpunit
-fnm use
-pnpm install --frozen-lockfile
-pnpm format:check
-pnpm test
-pnpm lint
 ```
 
 Run commands through DDEV when they depend on PHP, Drupal, database services, or the web container. Run pnpm/fnm commands on the host unless the project later decides otherwise.

@@ -9,6 +9,9 @@ Record durable project decisions here. Use this file instead of burying decision
 - Node/package tooling uses pnpm, not npm or yarn.
 - Repository formatting uses Prettier.
 - Repository source is licensed under MIT.
+- Drupal coding standards are checked with PHP_CodeSniffer plus Drupal Coder using `phpcs.xml.dist`.
+- Theme tooling starts without Gulp; use direct pnpm scripts and Drupal libraries unless real asset-pipeline needs emerge.
+- The custom theme should start from Drupal core Starterkit, with Olivero used only as a reference theme.
 
 ## Open Questions
 
@@ -19,6 +22,8 @@ Record durable project decisions here. Use this file instead of burying decision
 - What Drupal version should be targeted?
 - What hosting environment will run the site?
 - What brand/design assets already exist?
+- What is the final custom theme machine name and display name?
+- What browser/device support matrix should the theme target?
 
 ## Assumptions In Use
 

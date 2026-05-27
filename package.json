@@ -9,8 +9,11 @@
     "pnpm": ">=9 <10"
   },
   "scripts": {
-    "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format": "prettier --write . && composer format:php",
+    "format:check": "prettier --check .",
+    "format:php": "composer format:php",
+    "lint": "pnpm format:check && composer lint:php",
+    "lint:php": "composer lint:php"
   },
   "devDependencies": {
     "@prettier/plugin-php": "^0.22.4",

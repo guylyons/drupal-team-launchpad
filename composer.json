@@ -1,0 +1,22 @@
+{
+  "name": "guylyons/drupal-team",
+  "description": "Drupal Team Launchpad project scaffold and coding standards baseline.",
+  "type": "project",
+  "license": "MIT",
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.1",
+    "drupal/coder": "^8.3"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    },
+    "sort-packages": true
+  },
+  "scripts": {
+    "lint": "@lint:php",
+    "lint:php": "phpcs --standard=phpcs.xml.dist",
+    "format": "@format:php",
+    "format:php": "phpcbf --standard=phpcs.xml.dist"
+  }
+}

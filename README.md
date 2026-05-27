@@ -12,87 +12,46 @@
   <img alt="Formatting" src="https://img.shields.io/badge/formatting-Prettier-F7B93E">
 </p>
 
-A batteries-included starter workspace for Drupal teams that need to start new projects fast without skipping the work that keeps projects maintainable.
+A starter repo for Drupal builds that need team structure before they need custom code.
 
-It gives your team a ready-to-use operating model, role briefs, Drupal standards, local dev defaults, formatting, Git hygiene, and an initial backlog so developers, themers, writers, designers, and AI coding agents can start from the same page.
+It gives you the boring parts up front: DDEV, Composer, pnpm, formatting, Drupal coding standards, role briefs, planning docs, a decisions log, handoff notes, and launch prompts for AI coding agents.
 
-## Why this exists
+Use it when you want a Drupal project to start clean instead of spending week one arguing about docroots, tooling, ownership, and who is allowed to invent requirements.
 
-Most Drupal projects lose time before the first meaningful feature ships:
+## What this is
 
-- local development conventions are undecided
-- frontend tooling gets added inconsistently
-- content strategy and design decisions are separated from Drupal architecture
-- custom modules appear before the team proves they are needed
-- agents or contributors start making assumptions in different directions
+Drupal Team Launchpad is not a Drupal distribution. It does not ship a theme, install profile, content model, or pile of custom modules.
 
-Drupal Team Launchpad makes the defaults explicit.
+It is the repo you start from before those decisions are safe to make.
 
-It is not a Drupal distribution. It is a project starter and team operating system for getting a real Drupal build moving cleanly.
+The goal is simple: get a real Drupal team, human or agentic, working from the same assumptions.
 
-## Batteries included
+## What you get
 
-### Team scaffolding
+- A Drupal-ready local baseline using DDEV, Composer, fnm, pnpm, Prettier, PHP_CodeSniffer, and Drupal Coder.
+- A default project shape with `web/` as the Drupal docroot.
+- Role briefs for a team lead, module developer, themer, writer, and designer.
+- Plain Markdown planning docs for the brief, backlog, decisions, handoffs, workflow, theme tooling, and agent launch prompts.
+- A bias toward Drupal configuration and contributed modules before custom code.
+- A quality bar that asks every contributor to say what changed, how it was checked, what is still assumed, and who needs the handoff.
 
-Role briefs for a complete Drupal delivery team:
+## Who this is for
 
-- Team Lead / Integrator
-- Drupal Module Developer
-- Drupal Themer
-- Writer / Content Strategist
-- Designer / UX Lead
+This fits teams that are starting a Drupal site and want sane defaults without pretending discovery is done.
 
-Each role gets mission, responsibilities, standards, handoff needs, and verification expectations.
+It is especially useful when:
 
-### Drupal project conventions
+- the Drupal app has not been scaffolded yet
+- the content model is still unknown
+- design and editorial decisions need to happen before architecture hardens
+- multiple contributors or coding agents will touch the repo
+- you want project decisions recorded in Git instead of lost in chat
 
-Default assumptions are already captured:
-
-- Drupal 11 by default, with Drupal 10 fallback if constraints require it
-- Composer-managed Drupal build
-- `web/` docroot
-- custom modules in `web/modules/custom/`
-- custom themes in `web/themes/custom/`
-- config export in `config/sync/`
-- DDEV for local Drupal/PHP/database work
-- fnm for Node version management
-- pnpm for Node dependencies and scripts
-- Prettier for formatting
-- LF line endings via `.gitattributes`
-
-### Planning docs
-
-The `project/` directory includes:
-
-- site brief
-- technical standards
-- team workflow
-- backlog
-- decisions log
-- handoffs log
-- agent launch prompts
-
-These are intentionally plain Markdown so teams can use them in GitHub, issues, pull requests, Obsidian, or an AI coding workflow.
-
-### Tooling baseline
-
-Included repo config:
-
-- `.ddev/config.yaml`
-- `.fnmrc`
-- `.node-version`
-- `.nvmrc`
-- `.npmrc`
-- `.prettierrc.json`
-- `.prettierignore`
-- `.gitattributes`
-- `.gitignore`
-- `package.json`
-- `pnpm-lock.yaml`
+If you already have a mature Drupal codebase, this repo is probably more useful as a checklist than as a base.
 
 ## Quick start
 
-### 1. Clone or use as a template
+### 1. Create your project repo
 
 ```bash
 git clone git@github.com:YOUR-ORG/drupal-team-launchpad.git my-drupal-site
@@ -101,15 +60,16 @@ cd my-drupal-site
 
 Or create a new repository from this one as a GitHub template.
 
-### 2. Use the expected Node version
+### 2. Install the repo tooling
 
 ```bash
 fnm use
 corepack enable
 pnpm install --frozen-lockfile
+composer install
 ```
 
-The repo pins Node with `.fnmrc`, `.node-version`, and `.nvmrc` for compatibility with common workflows. `fnm` is the preferred version manager.
+The repo includes `.fnmrc`, `.node-version`, and `.nvmrc` so common Node workflows agree. `fnm` is the preferred version manager. pnpm is the package manager. Do not add npm or yarn lockfiles.
 
 ### 3. Start DDEV
 
@@ -119,29 +79,17 @@ ddev start
 
 DDEV is configured for:
 
-- Drupal 11
-- docroot `web/`
+- Drupal 11 default target
+- `web/` docroot
 - PHP 8.3
 - MySQL 8.0
 - nginx-fpm
 - Composer 2
 - Node 22 inside DDEV
 
-### 4. Create the Drupal application
+### 4. Fill in the project brief
 
-This repository starts as a team/project scaffold. When you are ready to create the Drupal app, use a Composer-managed Drupal project with `web/` as docroot.
-
-A typical next step is:
-
-```bash
-ddev composer create-project drupal/recommended-project .
-```
-
-Before running that in an existing repo, review the generated files and decide how you want to merge Composer's scaffold with this starter. Do not blindly overwrite project docs or tooling config.
-
-### 5. Fill in the project brief
-
-Start here:
+Start here before writing application code:
 
 ```text
 project/site-brief.md
@@ -149,9 +97,21 @@ project/decisions.md
 project/backlog.md
 ```
 
-The first useful task is not code. It is making the site purpose, audience, launch constraints, and ownership explicit.
+The first useful task is deciding what the site is for, who owns it, who uses it, what must launch, and what constraints are real.
 
-## Repository structure
+### 5. Scaffold Drupal when the baseline is ready
+
+This repository starts as a team and tooling scaffold. When you are ready to create the Drupal app, use a Composer-managed Drupal project with `web/` as docroot.
+
+A typical next step is:
+
+```bash
+ddev composer create-project drupal/recommended-project .
+```
+
+Do not run that blindly in a repo with existing docs and tooling. Review the generated files first and decide how to merge Composer's scaffold with this starter.
+
+## Repository map
 
 ```text
 .
@@ -169,9 +129,12 @@ The first useful task is not code. It is making the site purpose, audience, laun
 │   ├── backlog.md
 │   ├── decisions.md
 │   ├── handoffs.md
+│   ├── theme-tooling.md
 │   └── launching-agents.md
 ├── .ddev/                            # DDEV local dev config
 ├── docs/assets/                      # README/logo assets
+├── composer.json                     # PHP_CodeSniffer + Drupal Coder tooling
+├── phpcs.xml.dist                    # Drupal/DrupalPractice ruleset
 ├── package.json                      # pnpm + Prettier baseline
 └── pnpm-lock.yaml
 ```
@@ -186,37 +149,39 @@ web/themes/custom/
 web/sites/default/
 ```
 
-## Working with the team docs
+## Team model
 
-Start every new project by filling out:
+The repo assumes a small Drupal delivery team:
 
-1. `project/site-brief.md`
-2. `project/decisions.md`
-3. `project/backlog.md`
+| Role                        | Owns                                                                                     |
+| --------------------------- | ---------------------------------------------------------------------------------------- |
+| Team Lead / Integrator      | scope, decisions, handoffs, review, integration                                          |
+| Drupal Module Developer     | custom modules, plugins, services, hooks, schema, APIs, tests                            |
+| Drupal Themer               | Twig, libraries, preprocess, CSS, JavaScript, frontend accessibility                     |
+| Writer / Content Strategist | sitemap, content model guidance, page copy, labels, metadata, editorial workflow         |
+| Designer / UX Lead          | IA, visual direction, design tokens, components, responsive behavior, interaction states |
 
-Then assign work by role:
+Each role has a brief in `agents/`. The point is not bureaucracy. The point is to stop backend, theme, content, and design work from making hidden assumptions about each other.
 
-- Writer drafts sitemap, content model, metadata, page briefs, and real content samples.
-- Designer defines IA, component inventory, design tokens, responsive behavior, and accessibility states.
-- Module Developer proposes Drupal architecture, content types, config, custom module needs, and backend verification.
-- Themer plans and implements Twig, libraries, CSS, frontend behavior, and accessibility details.
-- Team Lead keeps assumptions, handoffs, and decisions visible.
+## Working with AI coding agents
 
-## Using AI agents
+This scaffold works well with Hermes, Claude Code, Codex, OpenCode, or any coding agent that can read files and edit a repo.
 
-This scaffold is designed to work well with Hermes, Claude Code, Codex, OpenCode, or any coding agent that can read files and edit a repo.
-
-Use prompts like:
+Use role-scoped prompts. Example:
 
 ```text
 You are the Drupal Themer for this repository. Read AGENTS.md, project/site-brief.md, project/workflow.md, project/technical-standards.md, project/decisions.md, project/backlog.md, and agents/drupal-themer.md. Take T005 from project/backlog.md. Keep changes small, document assumptions, and update project/handoffs.md if another role depends on your output.
 ```
 
-More launch prompts are in:
+More prompts are in `project/launching-agents.md`.
 
-```text
-project/launching-agents.md
-```
+Rules for agents are intentionally strict:
+
+- read the shared docs before changing files
+- keep work small and reviewable
+- record open questions instead of guessing
+- use Drupal configuration before custom code
+- document verification, even when the only honest verification is manual review
 
 ## Quality bar
 
@@ -227,6 +192,23 @@ A task is not done until the contributor or agent documents:
 - what assumptions remain
 - whether another role needs a handoff
 
+Current checks:
+
+```bash
+composer validate
+composer audit
+composer lint:php
+pnpm format:check
+pnpm lint
+```
+
+Formatting commands:
+
+```bash
+composer format:php
+pnpm format
+```
+
 Preferred checks once the Drupal app exists:
 
 ```bash
@@ -234,14 +216,9 @@ ddev composer validate
 ddev composer audit
 ddev exec vendor/bin/phpcs
 ddev exec vendor/bin/phpunit
-fnm use
-pnpm install --frozen-lockfile
-pnpm format:check
-pnpm test
-pnpm lint
 ```
 
-Run PHP, Drupal, database, and web-container checks through DDEV. Run pnpm/fnm commands on the host unless your project later decides otherwise.
+Run PHP, Drupal, database, and web-container checks through DDEV. Run fnm and pnpm commands on the host unless the project decides otherwise.
 
 ## What this is not
 
@@ -249,9 +226,9 @@ This is not:
 
 - a Drupal distribution
 - a theme framework
-- a replacement for project discovery
-- a pile of custom code
-- an excuse to let agents invent requirements
+- a replacement for discovery
+- a starter kit for speculative custom modules
+- permission for agents to invent final requirements
 
 It is a clean launchpad for Drupal teams that want speed without chaos.
 
@@ -266,7 +243,7 @@ If you are turning this into a real site, create issues for:
 5. Define visual direction and component inventory
 6. Scaffold custom theme
 7. Decide accessibility testing approach
-8. Decide deployment/config workflow
+8. Decide deployment and config workflow
 
 ## License
 
