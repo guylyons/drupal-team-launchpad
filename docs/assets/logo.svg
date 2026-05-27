@@ -1,0 +1,30 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Drupal Team Launchpad logo</title>
+  <desc id="desc">A blue droplet-shaped launch mark made from modular blocks and a rocket path.</desc>
+  <rect width="512" height="512" rx="112" fill="#07192F"/>
+  <circle cx="256" cy="256" r="188" fill="#0B2748" stroke="#164E7A" stroke-width="4"/>
+
+  <!-- launch rings -->
+  <path d="M136 332C168 388 229 418 292 405C355 393 404 341 412 278" stroke="#1ED6FF" stroke-width="10" stroke-linecap="round" opacity="0.28"/>
+  <path d="M101 276C111 194 176 128 257 116" stroke="#54E1FF" stroke-width="8" stroke-linecap="round" opacity="0.22"/>
+
+  <!-- abstract Drupal-like droplet, intentionally not official mark -->
+  <path d="M256 84C256 84 150 191 150 293C150 359 197 407 256 407C315 407 362 359 362 293C362 191 256 84 256 84Z" fill="#0AA5FF"/>
+  <path d="M256 112C256 112 178 199 178 286C178 342 211 378 256 378C301 378 334 342 334 286C334 199 256 112 256 112Z" fill="#0E72D8"/>
+  <path d="M256 145C256 145 205 211 205 278C205 323 226 350 256 350C286 350 307 323 307 278C307 211 256 145 256 145Z" fill="#083B7A" opacity="0.72"/>
+
+  <!-- modular team blocks -->
+  <rect x="159" y="315" width="56" height="56" rx="14" fill="#22C55E"/>
+  <rect x="228" y="315" width="56" height="56" rx="14" fill="#54E1FF"/>
+  <rect x="297" y="315" width="56" height="56" rx="14" fill="#78A8FF"/>
+  <rect x="193" y="248" width="56" height="56" rx="14" fill="#B7F3FF"/>
+  <rect x="262" y="248" width="56" height="56" rx="14" fill="#18BFFF"/>
+
+  <!-- launch arrow -->
+  <path d="M205 228C236 194 273 169 318 151" stroke="white" stroke-width="13" stroke-linecap="round"/>
+  <path d="M318 151L305 190" stroke="white" stroke-width="13" stroke-linecap="round"/>
+  <path d="M318 151L278 143" stroke="white" stroke-width="13" stroke-linecap="round"/>
+
+  <!-- base shine -->
+  <path d="M177 289C177 342 209 378 256 378C303 378 335 342 335 289" stroke="#8EEBFF" stroke-width="5" stroke-linecap="round" opacity="0.4"/>
+</svg>
