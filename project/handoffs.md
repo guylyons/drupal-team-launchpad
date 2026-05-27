@@ -19,6 +19,16 @@ Verification performed:
 ## Active Handoffs
 
 Date: 2026-05-27
+From: Writer / Content Strategist
+To: Designer / UX Lead, Drupal Module Developer
+Related task: T002 Draft initial sitemap and content model candidates
+Summary: Added a first-pass content strategy planning document with explicit unknowns, a candidate sitemap, candidate content types and fields, taxonomy candidates, editorial workflow notes, accessibility/content concerns, and review questions.
+Files changed/proposed: `project/content-strategy.md`, `project/backlog.md`, `project/handoffs.md`
+Decisions made: None. This is candidate planning only; final site purpose, audiences, brand, governance, launch scope, and Drupal architecture remain open.
+Open questions: Designer should review navigation shape, content density, and state/design needs. Drupal Module Developer should review feasibility, shared fields, workflow/moderation options, reusable CTA modeling, and whether any proposed structure requires contributed modules or custom code.
+Verification performed: Manual content review against the site brief, technical standards, workflow, decisions log, and Writer role guidance. Ran `pnpm format:check` and `composer validate --no-check-publish`; both passed. Ran `composer lint:php`; it did not complete because `phpcs` is not installed or not available on PATH in this worktree.
+
+Date: 2026-05-27
 From: Drupal Themer / Team Lead
 To: Designer / UX Lead, Drupal Module Developer
 Related task: T005 Theme scaffold plan

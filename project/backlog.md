@@ -21,7 +21,7 @@ Verification:
 ### T002: Draft initial sitemap and content model candidates
 
 Owner: Writer / Content Strategist
-Status: proposed
+Status: review
 
 Context: Drupal architecture should follow content needs.
 
