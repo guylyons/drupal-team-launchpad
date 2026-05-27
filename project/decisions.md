@@ -12,6 +12,8 @@ Record durable project decisions here. Use this file instead of burying decision
 - Drupal coding standards are checked with PHP_CodeSniffer plus Drupal Coder using `phpcs.xml.dist`.
 - Theme tooling starts without Gulp; use direct pnpm scripts and Drupal libraries unless real asset-pipeline needs emerge.
 - The custom theme should start from Drupal core Starterkit, with Olivero used only as a reference theme.
+- Drupal baseline targets Drupal 11 unless a hosting, contributed-module, integration, or migration constraint requires Drupal 10.
+- DDEV baseline uses project name `drupal-team`, docroot `web`, PHP 8.3, MySQL 8.0, Composer 2, Node.js 22, and Drupal 11 project type.
 
 ## Open Questions
 
@@ -19,7 +21,6 @@ Record durable project decisions here. Use this file instead of burying decision
 - Who are the primary and secondary audiences?
 - What content must be ready for launch?
 - What existing content or systems need migration/integration?
-- What Drupal version should be targeted?
 - What hosting environment will run the site?
 - What brand/design assets already exist?
 - What is the final custom theme machine name and display name?

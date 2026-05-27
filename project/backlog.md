@@ -55,7 +55,7 @@ Verification:
 ### T004: Finalize Drupal baseline within DDEV
 
 Owner: Drupal Module Developer
-Status: proposed
+Status: review
 
 Context: Local development is DDEV, Node is managed by fnm, and frontend tooling uses pnpm. Drupal version and Composer scaffold still need final confirmation.
 
