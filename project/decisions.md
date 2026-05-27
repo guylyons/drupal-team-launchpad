@@ -14,6 +14,8 @@ Record durable project decisions here. Use this file instead of burying decision
 - The custom theme should start from Drupal core Starterkit, with Olivero used only as a reference theme.
 - Drupal baseline targets Drupal 11 unless a hosting, contributed-module, integration, or migration constraint requires Drupal 10.
 - DDEV baseline uses project name `drupal-team`, docroot `web`, PHP 8.3, MySQL 8.0, Composer 2, Node.js 22, and Drupal 11 project type.
+- Routine Drupal/PHP/database operations should run through DDEV; host execution remains the default for fnm/pnpm repository formatting unless the project decides otherwise.
+- Drush is the default Drupal CLI for cache rebuilds, database updates, configuration import/export, status checks, and module/theme operations once the Drupal app is scaffolded.
 
 ## Open Questions
 
@@ -25,6 +27,7 @@ Record durable project decisions here. Use this file instead of burying decision
 - What brand/design assets already exist?
 - What is the final custom theme machine name and display name?
 - What browser/device support matrix should the theme target?
+- Did the user mean Drush when asking about "Josh or similar," or is there another Drupal command/orchestration tool they want evaluated?
 
 ## Assumptions In Use
 

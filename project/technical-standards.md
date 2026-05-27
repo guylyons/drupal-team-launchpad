@@ -80,4 +80,6 @@ ddev exec vendor/bin/phpunit
 
 Run commands through DDEV when they depend on PHP, Drupal, database services, or the web container. Run pnpm/fnm commands on the host unless the project later decides otherwise.
 
+For routine Drupal operations after the app is scaffolded, follow `project/drupal-operations.md`. It is the command runbook for Composer updates, Drush, database updates, configuration import/export, cache rebuilds, module enable/uninstall, security audit, coding standards, and AI-agent execution notes.
+
 Do not claim a check passed unless it was run.
