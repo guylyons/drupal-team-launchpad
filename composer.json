@@ -3,15 +3,52 @@
   "description": "Drupal Team Launchpad project scaffold and coding standards baseline.",
   "type": "project",
   "license": "MIT",
+  "require": {
+    "drupal/core": "^11",
+    "drupal/core-composer-scaffold": "^11",
+    "drupal/core-project-message": "^11",
+    "drush/drush": "^13",
+    "composer/installers": "^2.3"
+  },
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^1.1",
     "drupal/coder": "^8.3"
   },
   "config": {
     "allow-plugins": {
-      "dealerdirect/phpcodesniffer-composer-installer": true
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "drupal/core-composer-scaffold": true,
+      "drupal/core-project-message": true,
+      "composer/installers": true
     },
     "sort-packages": true
+  },
+  "extra": {
+    "drupal-scaffold": {
+      "locations": {
+        "web-root": "web/"
+      }
+    },
+    "installer-paths": {
+      "web/core": [
+        "type:drupal-core"
+      ],
+      "web/libraries/{$name}": [
+        "type:drupal-library"
+      ],
+      "web/modules/contrib/{$name}": [
+        "type:drupal-module"
+      ],
+      "web/profiles/contrib/{$name}": [
+        "type:drupal-profile"
+      ],
+      "web/themes/contrib/{$name}": [
+        "type:drupal-theme"
+      ],
+      "drush/Commands/contrib/{$name}": [
+        "type:drupal-drush"
+      ]
+    }
   },
   "scripts": {
     "lint": "@lint:php",

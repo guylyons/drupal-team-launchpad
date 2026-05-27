@@ -4,10 +4,12 @@ web/core/
 web/modules/contrib/
 web/themes/contrib/
 web/profiles/contrib/
+web/README.md
+web/sites/development.services.yml
+web/sites/default/default.services.yml
 web/sites/*/files/
 web/sites/*/private/
 .codegraph/
-.ddev/.downloads/
-.ddev/db_snapshots/
+.ddev/
 composer.lock
 pnpm-lock.yaml

@@ -19,6 +19,7 @@
   <exclude-pattern>*/web/profiles/contrib/*</exclude-pattern>
   <exclude-pattern>*/web/sites/*/files/*</exclude-pattern>
   <exclude-pattern>*/web/sites/*/private/*</exclude-pattern>
+  <exclude-pattern>*/web/sites/*/settings.ddev.php</exclude-pattern>
 
   <rule ref="Drupal"/>
   <rule ref="DrupalPractice"/>

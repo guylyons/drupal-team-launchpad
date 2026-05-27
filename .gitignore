@@ -34,6 +34,7 @@ yarn-error.log*
 web/sites/*/files/
 web/sites/*/private/
 web/sites/*/settings.local.php
+web/sites/*/settings.ddev.php
 web/sites/*/services.local.yml
 web/sites/*/development.services.yml
 web/sites/*/default/files/
@@ -58,3 +59,4 @@ web/libraries/
 
 # CodeGraph local index
 .codegraph/
+/.editorconfig
