@@ -1,0 +1,13 @@
+vendor/
+node_modules/
+web/core/
+web/modules/contrib/
+web/themes/contrib/
+web/profiles/contrib/
+web/sites/*/files/
+web/sites/*/private/
+.codegraph/
+.ddev/.downloads/
+.ddev/db_snapshots/
+composer.lock
+pnpm-lock.yaml

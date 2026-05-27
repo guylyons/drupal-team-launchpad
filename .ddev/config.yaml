@@ -1,0 +1,19 @@
+name: drupal-team
+type: drupal11
+docroot: web
+php_version: "8.3"
+webserver_type: nginx-fpm
+xdebug_enabled: false
+additional_hostnames: []
+additional_fqdns: []
+database:
+  type: mysql
+  version: "8.0"
+composer_version: "2"
+nodejs_version: "22"
+web_environment: []
+corepack_enable: true
+use_dns_when_possible: true
+
+# Keep this file boring. Add project-specific services with committed
+# .ddev/docker-compose.*.yaml files only when the Drupal app needs them.

@@ -34,12 +34,14 @@ Existing content source:
 
 These are defaults, not final decisions:
 
-- Drupal 10 or 11.
+- Drupal 11 unless project constraints require Drupal 10.
 - Composer-managed build.
+- DDEV local development with docroot `web/`.
+- fnm-managed Node.js using the version in `.fnmrc` / `.node-version`.
+- pnpm for Node/package scripts; do not introduce npm/yarn lockfiles.
 - Custom module path: `web/modules/custom/`.
 - Custom theme path: `web/themes/custom/`.
 - Config export path: `config/sync/`.
-- Local development stack to be chosen later.
 
 ## Open Questions
 

@@ -4,6 +4,10 @@
 
 - Prefer core and mature contributed modules before custom code.
 - Keep configuration exportable and reviewable.
+- Use DDEV for local development.
+- Use Composer for PHP dependencies.
+- Use fnm for Node version management.
+- Use pnpm for Node dependencies and scripts; do not add npm/yarn lockfiles.
 - Avoid placing business logic in the theme layer.
 - Avoid placing presentation decisions in custom modules.
 - Use Drupal APIs for entity access, rendering, caching, routing, forms, and services.
@@ -54,12 +58,17 @@ When tooling exists, run it. If tooling does not exist yet, document manual chec
 Preferred future checks:
 
 ```bash
-composer validate
-composer audit
-vendor/bin/phpcs
-vendor/bin/phpunit
-npm test
-npm run lint
+ddev composer validate
+ddev composer audit
+ddev exec vendor/bin/phpcs
+ddev exec vendor/bin/phpunit
+fnm use
+pnpm install --frozen-lockfile
+pnpm format:check
+pnpm test
+pnpm lint
 ```
+
+Run commands through DDEV when they depend on PHP, Drupal, database services, or the web container. Run pnpm/fnm commands on the host unless the project later decides otherwise.
 
 Do not claim a check passed unless it was run.

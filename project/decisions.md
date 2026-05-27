@@ -4,7 +4,10 @@ Record durable project decisions here. Use this file instead of burying decision
 
 ## Accepted Decisions
 
-None yet.
+- Local development uses DDEV.
+- Node version management uses fnm.
+- Node/package tooling uses pnpm, not npm or yarn.
+- Repository formatting uses Prettier.
 
 ## Open Questions
 

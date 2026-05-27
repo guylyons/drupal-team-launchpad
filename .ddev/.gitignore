@@ -1,0 +1,11 @@
+# DDEV generated/local state
+.ddev-docker-compose-full.yaml
+.ddev-router-compose-full.yaml
+commands/
+.env
+.homeadditions/
+.global_commands/
+.downloads/
+.webimageBuild/
+db_snapshots/
+mutagen/

@@ -34,6 +34,7 @@ The Drupal application is expected to live under `web/` if this becomes a Compos
 Suggested future layout:
 
 ```text
+.ddev/
 composer.json
 config/sync/
 web/modules/custom/
@@ -42,6 +43,13 @@ docs/
 agents/
 project/
 ```
+
+Local development/tooling defaults:
+
+- DDEV for Drupal/PHP/database work.
+- fnm for Node version management.
+- pnpm for Node dependencies and scripts.
+- Prettier for formatting supported text assets.
 
 ## Definition of Done
 

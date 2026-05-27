@@ -1,0 +1,60 @@
+# OS/editor noise
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp
+*.swo
+*~
+
+# Environment/secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies/build output
+node_modules/
+vendor/
+.pnp.*
+.pnpm-store/
+coverage/
+dist/
+build/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Drupal generated/private files
+web/sites/*/files/
+web/sites/*/private/
+web/sites/*/settings.local.php
+web/sites/*/services.local.yml
+web/sites/*/development.services.yml
+web/sites/*/default/files/
+web/sites/*/default/private/
+
+# Drupal scaffold/generated files that should not be committed unless intentionally managed
+web/core/
+web/modules/contrib/
+web/themes/contrib/
+web/profiles/contrib/
+web/libraries/
+
+# DDEV local state
+.ddev/.ddev-docker-compose-full.yaml
+.ddev/.ddev-router-compose-full.yaml
+.ddev/.global_commands/
+.ddev/.homeadditions/
+.ddev/.downloads/
+.ddev/.webimageBuild/
+.ddev/db_snapshots/
+.ddev/mutagen/
+
+# CodeGraph local index
+.codegraph/
