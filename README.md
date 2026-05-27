@@ -270,4 +270,4 @@ If you are turning this into a real site, create issues for:
 
 ## License
 
-Add your project license here before publishing.
+MIT. See `LICENSE`.

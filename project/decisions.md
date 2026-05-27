@@ -8,6 +8,7 @@ Record durable project decisions here. Use this file instead of burying decision
 - Node version management uses fnm.
 - Node/package tooling uses pnpm, not npm or yarn.
 - Repository formatting uses Prettier.
+- Repository source is licensed under MIT.
 
 ## Open Questions
 
@@ -16,7 +17,6 @@ Record durable project decisions here. Use this file instead of burying decision
 - What content must be ready for launch?
 - What existing content or systems need migration/integration?
 - What Drupal version should be targeted?
-- What local development stack should be used?
 - What hosting environment will run the site?
 - What brand/design assets already exist?
 
