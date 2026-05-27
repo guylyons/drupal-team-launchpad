@@ -31,7 +31,7 @@ The goal is simple: get a real Drupal team, human or agentic, working from the s
 - A Drupal-ready local baseline using DDEV, Composer, fnm, pnpm, Prettier, PHP_CodeSniffer, and Drupal Coder.
 - A default project shape with `web/` as the Drupal docroot.
 - Role briefs for a team lead, module developer, themer, writer, and designer.
-- Plain Markdown planning docs for the brief, backlog, decisions, handoffs, workflow, content strategy, design start guide, theme tooling, and agent launch prompts.
+- Plain Markdown planning docs for the brief, backlog, decisions, handoffs, workflow, content strategy, design start guide, theme tooling, Drupal operations, and agent launch prompts.
 - A bias toward Drupal configuration and contributed modules before custom code.
 - A quality bar that asks every contributor to say what changed, how it was checked, what is still assumed, and who needs the handoff.
 
@@ -145,6 +145,7 @@ Do not run that blindly in a repo with existing docs and tooling. Review the gen
 │   ├── handoffs.md
 │   ├── content-strategy.md
 │   ├── design-start.md
+│   ├── drupal-operations.md
 │   ├── theme-tooling.md
 │   └── launching-agents.md
 ├── .ddev/                            # DDEV local dev config
@@ -191,6 +192,8 @@ You are the Drupal Themer for this repository. Read AGENTS.md, project/site-brie
 
 More copy-paste prompts and a fast launch sequence are in `project/launching-agents.md`.
 
+Routine Drupal operations are documented in `project/drupal-operations.md`, including DDEV vs host execution, Drush usage, Composer updates, database updates, config import/export, cache rebuilds, module enable/uninstall commands, security audit checks, coding standards, and provider-neutral guidance for Hermes, Codex, and Claude.
+
 Rules for agents are intentionally strict:
 
 - read the shared docs before changing files
@@ -230,6 +233,9 @@ Preferred checks once the Drupal app exists:
 ```bash
 ddev composer validate
 ddev composer audit
+ddev drush updatedb -y
+ddev drush config:status
+ddev drush cache:rebuild
 ddev exec vendor/bin/phpcs
 ddev exec vendor/bin/phpunit
 ```

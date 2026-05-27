@@ -16,7 +16,7 @@ Do not ask an agent to "work on the site" generally. Give it one role and one ta
 
 ```text
 You are working in this repository as the {ROLE}.
-Read AGENTS.md, project/site-brief.md, project/workflow.md, project/technical-standards.md, project/decisions.md, project/backlog.md, and agents/{ROLE_FILE}. Then take task {TASK_ID}. Keep changes small, document assumptions, and update project/handoffs.md if another role depends on your output.
+Read AGENTS.md, project/site-brief.md, project/workflow.md, project/technical-standards.md, project/decisions.md, project/backlog.md, project/drupal-operations.md if your task touches Drupal commands or dependencies, and agents/{ROLE_FILE}. Then take task {TASK_ID}. Keep changes small, document assumptions, and update project/handoffs.md if another role depends on your output.
 ```
 
 Stronger version for editing tasks:
@@ -34,6 +34,8 @@ hermes chat -q "You are the Team Lead / Integrator. Read AGENTS.md and agents/te
 
 hermes chat -q "You are the Drupal Module Developer. Read AGENTS.md and agents/drupal-module-developer.md. Take T004 from project/backlog.md and propose the Drupal baseline/local dev stack."
 
+hermes chat -q "You are the Drupal Module Developer. Read AGENTS.md, project/technical-standards.md, project/drupal-operations.md, and agents/drupal-module-developer.md. Review routine Drupal operations commands for Composer, Drush, config, cache, module updates, and verification. Keep changes documentation-only unless implementation is explicitly requested."
+
 hermes chat -q "You are the Drupal Themer. Read AGENTS.md and agents/drupal-themer.md. Take T005 from project/backlog.md and draft the theme scaffold plan."
 
 hermes chat -q "You are the Writer / Content Strategist. Read AGENTS.md and agents/writer-content-strategist.md. Take T002 from project/backlog.md and draft a candidate sitemap/content model."
@@ -49,7 +51,7 @@ Do not run parallel editing agents against the same files unless each has a clea
 
 - Writer edits `project/content-*` docs.
 - Designer edits `project/design-*` docs.
-- Module Developer edits `project/drupal-architecture.md` or future `web/modules/custom/`.
+- Module Developer edits `project/drupal-operations.md`, `project/drupal-architecture.md`, or future `web/modules/custom/`.
 - Themer edits `project/theme-plan.md` or future `web/themes/custom/`.
 - Team Lead edits backlog, decisions, and handoffs.
 

@@ -67,3 +67,13 @@ Files changed/proposed: `.ddev/config.yaml` reviewed; `project/drupal-baseline.m
 Decisions made: Recommend Drupal 11 by default; keep DDEV docroot `web`, PHP 8.3, MySQL 8.0, Composer 2, Node.js 22, project name `drupal-team`; do not scaffold the full Drupal app until Team Lead accepts baseline constraints.
 Open questions: Hosting/database constraints; any Drupal 11-incompatible contrib/integration requirements; final DDEV project name; whether Drush belongs in the initial scaffold or later.
 Verification performed: Ran `composer install` and `pnpm install --frozen-lockfile` to restore missing local dependencies, then ran `composer validate --no-check-publish`, `composer lint:php`, and `pnpm format:check`.
+
+Date: 2026-05-27
+From: Drupal Module Developer
+To: Team Lead, Hermes/Codex/Claude operators
+Related task: T006 Document routine Drupal operations for agents
+Summary: Added a Drupal operations command guide for routine Composer, Drush, database update, configuration, cache, module, security audit, coding standards, and verification workflows. Added provider-neutral guidance for Hermes, Codex, and Claude. Updated references in README, launch prompts, technical standards, decisions, and backlog.
+Files changed/proposed: `project/drupal-operations.md`, `README.md`, `project/launching-agents.md`, `project/technical-standards.md`, `project/decisions.md`, `project/backlog.md`, `project/handoffs.md`
+Decisions made: Use DDEV for Drupal/PHP/database operations; use host fnm/pnpm for repository formatting by default; treat Drush as the default Drupal CLI once the app is scaffolded.
+Open questions: Confirm whether the user's "Josh or similar" request means Drush or another Drupal command/orchestration tool.
+Verification performed: Ran `composer install` to restore missing PHP tooling, then `composer validate --no-check-publish`, `composer lint:php`, and `pnpm format:check`; all passed.

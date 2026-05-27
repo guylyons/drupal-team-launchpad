@@ -90,6 +90,23 @@ Verification:
 - Theme tooling plan added in `project/theme-tooling.md`.
 - Designer and Module Developer review handoff assumptions.
 
+### T006: Document routine Drupal operations for agents
+
+Owner: Drupal Module Developer
+Status: done
+
+Context: Human and AI contributors need concrete, provider-neutral commands for common Drupal operations before app scaffolding begins.
+
+Acceptance criteria:
+
+- Composer updates, Drupal database updates, configuration import/export, cache rebuilds, module enable/uninstall, security audit, coding standards, DDEV vs host execution, and Drush usage are documented.
+- Hermes, Codex, and Claude command guidance is provider-neutral and concrete.
+- The uncertain "Josh or similar" request is recorded as an open clarification rather than implemented speculatively.
+
+Verification:
+
+- Documentation review plus repository checks recorded in `project/handoffs.md`.
+
 ## Parking Lot
 
 - Accessibility test tooling decision.
