@@ -1,6 +1,16 @@
 # Launching The Team
 
-These role files are written so a Hermes/Codex/Claude-style coding agent can be started with a clear brief.
+These role files are written so a Hermes/Codex/Claude-style coding agent can start fast without guessing the project.
+
+## First 15 Minutes
+
+1. Read `README.md` for the repo shape and current checks.
+2. Read `AGENTS.md` for the shared operating rules.
+3. Read the project brief, workflow, technical standards, decisions log, backlog, and your role file.
+4. Choose one backlog item or accept one from the Team Lead.
+5. Make the smallest useful change, then write verification and handoff notes.
+
+Do not ask an agent to "work on the site" generally. Give it one role and one task. If a requirement is missing, the agent should record the unknown instead of filling it in.
 
 ## Recommended Agent Prompt Pattern
 
@@ -9,9 +19,15 @@ You are working in this repository as the {ROLE}.
 Read AGENTS.md, project/site-brief.md, project/workflow.md, project/technical-standards.md, project/decisions.md, project/backlog.md, and agents/{ROLE_FILE}. Then take task {TASK_ID}. Keep changes small, document assumptions, and update project/handoffs.md if another role depends on your output.
 ```
 
+Stronger version for editing tasks:
+
+```text
+You are the {ROLE} for this repository. First read README.md, AGENTS.md, project/site-brief.md, project/workflow.md, project/technical-standards.md, project/decisions.md, project/backlog.md, and agents/{ROLE_FILE}. Take {TASK_ID} only. Do not invent final site requirements. If a decision is missing, add it as an open question or assumption. Keep the change reviewable, run relevant checks, and update project/handoffs.md when another role needs your output.
+```
+
 ## Example Hermes One-Shot Commands
 
-Run these from the repository root. Use worktree mode for agents that will edit code concurrently once this becomes a real Drupal app.
+Run these from the repository root. They are intentionally narrow. Use worktree mode for agents that will edit code concurrently once this becomes a real Drupal app.
 
 ```bash
 hermes chat -q "You are the Team Lead / Integrator. Read AGENTS.md and agents/team-lead.md. Review project/backlog.md and prepare the next three ready tasks."
@@ -27,7 +43,7 @@ hermes chat -q "You are the Designer / UX Lead. Read AGENTS.md and agents/design
 
 ## Parallel Work Guidance
 
-Do not run parallel editing agents against the same files unless each has a clear ownership boundary. Safe early split:
+Do not run parallel editing agents against the same files unless each has a clear ownership boundary. Good early split:
 
 - Writer edits `project/content-*` docs.
 - Designer edits `project/design-*` docs.
@@ -43,3 +59,12 @@ Do not run parallel editing agents against the same files unless each has a clea
 4. Module Developer proposes Drupal baseline and content architecture.
 5. Themer proposes theme scaffold and component implementation approach.
 6. Team Lead reconciles conflicts and converts the plan into implementation tasks.
+
+## Done Means
+
+Every agent should end with:
+
+- files changed
+- checks run, including failures or missing dependencies
+- assumptions and open questions
+- handoffs needed from the next role

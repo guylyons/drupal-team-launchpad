@@ -12,11 +12,11 @@
   <img alt="Formatting" src="https://img.shields.io/badge/formatting-Prettier-F7B93E">
 </p>
 
-A starter repo for Drupal builds that need team structure before they need custom code.
+A fast starter for Drupal builds that need a clear team model before they need custom code.
 
-It gives you the boring parts up front: DDEV, Composer, pnpm, formatting, Drupal coding standards, role briefs, planning docs, a decisions log, handoff notes, and launch prompts for AI coding agents.
+It gives you the boring parts up front: DDEV, Composer, pnpm, formatting, Drupal coding standards, role briefs, planning docs, a decisions log, handoff notes, and copy-paste prompts for AI coding agents.
 
-Use it when you want a Drupal project to start clean instead of spending week one arguing about docroots, tooling, ownership, and who is allowed to invent requirements.
+Use it when you want to start clean instead of spending week one arguing about docroots, tooling, ownership, and who is allowed to invent requirements.
 
 ## What this is
 
@@ -50,6 +50,18 @@ It is especially useful when:
 If you already have a mature Drupal codebase, this repo is probably more useful as a checklist than as a base.
 
 ## Quick start
+
+### First 15 minutes
+
+If you only do one pass, do this:
+
+1. Clone the repo or create a new GitHub template repo from it.
+2. Run the install commands below so formatting and lint scripts are available.
+3. Open `project/site-brief.md` and fill in what is known. Leave unknowns blank or move them to `project/decisions.md`.
+4. Pick the next real task from `project/backlog.md`.
+5. If you are using agents, copy a role prompt from `project/launching-agents.md` and give the agent one task only.
+
+That is enough to start. Do not scaffold Drupal or invent a content model until the brief and constraints are clear enough.
 
 ### 1. Create your project repo
 
@@ -167,13 +179,13 @@ Each role has a brief in `agents/`. The point is not bureaucracy. The point is t
 
 This scaffold works well with Hermes, Claude Code, Codex, OpenCode, or any coding agent that can read files and edit a repo.
 
-Use role-scoped prompts. Example:
+Use role-scoped prompts and small tasks. Give each agent a role, the shared docs, one backlog item, and a clear handoff rule. Example:
 
 ```text
 You are the Drupal Themer for this repository. Read AGENTS.md, project/site-brief.md, project/workflow.md, project/technical-standards.md, project/decisions.md, project/backlog.md, and agents/drupal-themer.md. Take T005 from project/backlog.md. Keep changes small, document assumptions, and update project/handoffs.md if another role depends on your output.
 ```
 
-More prompts are in `project/launching-agents.md`.
+More copy-paste prompts and a fast launch sequence are in `project/launching-agents.md`.
 
 Rules for agents are intentionally strict:
 
