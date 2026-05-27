@@ -19,6 +19,16 @@ Verification performed:
 ## Active Handoffs
 
 Date: 2026-05-27
+From: Designer / UX Lead
+To: Team Lead, Drupal Themer, Drupal Module Developer, Writer / Content Strategist
+Related task: T003 Define visual direction and component inventory
+Summary: Added a design start guide that improves onboarding for the next UX/design pass and gives implementable IA, component, token, responsive, state, accessibility, and handoff checklists.
+Files changed/proposed: `project/design-start.md`, `README.md`, `agents/designer-ux-lead.md`, `project/backlog.md`, `project/decisions.md`, `project/launching-agents.md`, `project/handoffs.md`
+Decisions made: None. The guide keeps visual design, brand, browser support, content lengths, and component preview tooling as open questions until project constraints are known.
+Open questions: Team Lead should confirm priority flows and whether T003 can move from review to done. Writer should provide realistic content lengths. Themer should review component/state guidance for frontend feasibility. Module Developer should review Drupal source/modeling notes before field architecture is built.
+Verification performed: Manual UX review against the required project docs. Ran `pnpm format:check`, `composer validate --no-check-publish`, and `composer lint:php`; all passed after `composer install` restored missing PHP tooling.
+
+Date: 2026-05-27
 From: Writer / Content Strategist
 To: Designer / UX Lead, Drupal Module Developer
 Related task: T002 Draft initial sitemap and content model candidates

@@ -25,6 +25,8 @@ Record durable project decisions here. Use this file instead of burying decision
 - What brand/design assets already exist?
 - What is the final custom theme machine name and display name?
 - What browser/device support matrix should the theme target?
+- What content length examples should be used to stress-test components?
+- Are Drupal-rendered component examples sufficient, or does the team need a separate component preview tool?
 
 ## Assumptions In Use
 

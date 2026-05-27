@@ -23,6 +23,8 @@ hermes chat -q "You are the Drupal Themer. Read AGENTS.md and agents/drupal-them
 hermes chat -q "You are the Writer / Content Strategist. Read AGENTS.md and agents/writer-content-strategist.md. Take T002 from project/backlog.md and draft a candidate sitemap/content model."
 
 hermes chat -q "You are the Designer / UX Lead. Read AGENTS.md and agents/designer-ux-lead.md. Take T003 from project/backlog.md and draft the component inventory/design token starting point."
+
+hermes chat -q "You are the Designer / UX Lead. Read AGENTS.md, project/site-brief.md, project/content-strategy.md, project/design-start.md, project/decisions.md, project/theme-tooling.md, and agents/designer-ux-lead.md. Review one page flow or component for IA, responsive states, accessibility, and Drupal implementation handoff gaps."
 ```
 
 ## Parallel Work Guidance

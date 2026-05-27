@@ -31,7 +31,7 @@ The goal is simple: get a real Drupal team, human or agentic, working from the s
 - A Drupal-ready local baseline using DDEV, Composer, fnm, pnpm, Prettier, PHP_CodeSniffer, and Drupal Coder.
 - A default project shape with `web/` as the Drupal docroot.
 - Role briefs for a team lead, module developer, themer, writer, and designer.
-- Plain Markdown planning docs for the brief, backlog, decisions, handoffs, workflow, theme tooling, and agent launch prompts.
+- Plain Markdown planning docs for the brief, backlog, decisions, handoffs, workflow, content strategy, design start guide, theme tooling, and agent launch prompts.
 - A bias toward Drupal configuration and contributed modules before custom code.
 - A quality bar that asks every contributor to say what changed, how it was checked, what is still assumed, and who needs the handoff.
 
@@ -93,6 +93,8 @@ Start here before writing application code:
 
 ```text
 project/site-brief.md
+project/content-strategy.md
+project/design-start.md
 project/decisions.md
 project/backlog.md
 ```
@@ -129,6 +131,8 @@ Do not run that blindly in a repo with existing docs and tooling. Review the gen
 │   ├── backlog.md
 │   ├── decisions.md
 │   ├── handoffs.md
+│   ├── content-strategy.md
+│   ├── design-start.md
 │   ├── theme-tooling.md
 │   └── launching-agents.md
 ├── .ddev/                            # DDEV local dev config

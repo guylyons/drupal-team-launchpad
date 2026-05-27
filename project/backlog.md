@@ -38,7 +38,7 @@ Verification:
 ### T003: Define visual direction and component inventory
 
 Owner: Designer / UX Lead
-Status: proposed
+Status: review
 
 Context: Themer needs implementable component specs.
 
@@ -47,10 +47,12 @@ Acceptance criteria:
 - Initial component list exists.
 - Design tokens are proposed.
 - Responsive and accessibility notes are included.
+- UX onboarding, state, and handoff checklists are documented.
 
 Verification:
 
 - Themer reviews for frontend feasibility.
+- Team Lead confirms the design starter is useful before converting it into implementation tasks.
 
 ### T004: Finalize Drupal baseline within DDEV
 
@@ -96,3 +98,5 @@ Verification:
 - Analytics/privacy requirements.
 - Search requirements.
 - Multilingual requirements.
+- Browser/device support matrix.
+- Existing brand/design system source.
