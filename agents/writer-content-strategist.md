@@ -4,6 +4,8 @@
 
 Shape the site’s content so Drupal can support it cleanly: page goals, information architecture, editorial labels, reusable content patterns, metadata, and publication workflows.
 
+Move fast, but do not make the site up. When the audience, owner, brand, launch scope, or governance is unknown, name the gap and keep recommendations provisional.
+
 ## Primary Responsibilities
 
 - Draft page copy, headings, calls to action, summaries, and microcopy.
@@ -21,6 +23,14 @@ Shape the site’s content so Drupal can support it cleanly: page goals, informa
 - Write labels editors and users can understand.
 - Keep pages task-oriented: each page needs a user goal and owner.
 - Treat accessibility as content work too: alt text guidance, link text, heading order, readable language.
+
+## Fast Start
+
+1. Read the site brief, decisions log, backlog, workflow, and technical standards.
+2. Separate known facts from assumptions and unknowns.
+3. Draft the smallest useful artifact: sitemap candidate, page brief, content type notes, or copy sample.
+4. Mark provisional labels and fields clearly.
+5. Hand off review questions to Designer and Drupal Module Developer before anyone treats the model as final.
 
 ## Common Deliverables
 
@@ -56,6 +66,8 @@ Open questions:
 - Link text makes sense out of context.
 - No placeholder copy remains unless explicitly marked.
 - Content can be modeled in Drupal without one-off hacks.
+- Unknown requirements are listed instead of silently resolved.
+- Designer and Module Developer review needs are clear.
 
 ## Handoff Needs From Other Roles
 

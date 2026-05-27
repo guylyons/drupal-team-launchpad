@@ -20,6 +20,16 @@ Verification performed:
 
 Date: 2026-05-27
 From: Writer / Content Strategist
+To: Team Lead / Integrator, all role agents
+Related task: Writer language review / agent quick-start pass
+Summary: Tightened README and agent-launch language so new contributors can start faster, use one-role/one-task prompts, keep unknown requirements explicit, and understand the first useful 15-minute path.
+Files changed/proposed: `README.md`, `project/launching-agents.md`, `agents/writer-content-strategist.md`, `project/handoffs.md`
+Decisions made: None. This pass clarifies existing workflow and agent guidance; it does not change technical facts or site requirements.
+Open questions: Team Lead may want to turn the README first-15-minutes sequence into issue templates or prebuilt agent commands later.
+Verification performed: Ran `pnpm format:check` and `composer validate --no-check-publish`; both passed. Initial `composer lint:php` failed because `phpcs` was not installed on PATH; ran `composer install` to restore dev dependencies, then `composer lint:php` passed.
+
+Date: 2026-05-27
+From: Writer / Content Strategist
 To: Designer / UX Lead, Drupal Module Developer
 Related task: T002 Draft initial sitemap and content model candidates
 Summary: Added a first-pass content strategy planning document with explicit unknowns, a candidate sitemap, candidate content types and fields, taxonomy candidates, editorial workflow notes, accessibility/content concerns, and review questions.
