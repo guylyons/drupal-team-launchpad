@@ -16,6 +16,7 @@ Record durable project decisions here. Use this file instead of burying decision
 - DDEV baseline uses project name `drupal-team`, docroot `web`, PHP 8.3, MySQL 8.0, Composer 2, Node.js 22, and Drupal 11 project type.
 - Routine Drupal/PHP/database operations should run through DDEV; host execution remains the default for fnm/pnpm repository formatting unless the project decides otherwise.
 - Drush is the default Drupal CLI for cache rebuilds, database updates, configuration import/export, status checks, and module/theme operations once the Drupal app is scaffolded.
+- New developer setup should start with `./scripts/dev`; `./scripts/dev --ddev` adds DDEV startup, and neither command scaffolds Drupal.
 
 ## Open Questions
 

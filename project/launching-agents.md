@@ -4,13 +4,24 @@ These role files are written so a Hermes/Codex/Claude-style coding agent can sta
 
 ## First 15 Minutes
 
-1. Read `README.md` for the repo shape and current checks.
-2. Read `AGENTS.md` for the shared operating rules.
-3. Read the project brief, workflow, technical standards, decisions log, backlog, and your role file.
-4. Choose one backlog item or accept one from the Team Lead.
-5. Make the smallest useful change, then write verification and handoff notes.
+1. Run `./scripts/dev` from the repo root.
+2. Read `README.md` for the repo shape and current checks.
+3. Read `AGENTS.md` for the shared operating rules.
+4. Read the project brief, workflow, technical standards, decisions log, backlog, and your role file.
+5. Choose one backlog item or accept one from the Team Lead.
+6. Make the smallest useful change, then write verification and handoff notes.
 
 Do not ask an agent to "work on the site" generally. Give it one role and one task. If a requirement is missing, the agent should record the unknown instead of filling it in.
+
+## One-Command Local Start
+
+```bash
+./scripts/dev        # install dependencies and run checks
+./scripts/dev --ddev # install dependencies, run checks, and start DDEV
+pnpm agent:next      # print a copy-paste Hermes starter command
+```
+
+`./scripts/dev` does not scaffold Drupal. App scaffolding is a separate Team Lead decision because this starter repo already contains files that must be preserved.
 
 ## Recommended Agent Prompt Pattern
 

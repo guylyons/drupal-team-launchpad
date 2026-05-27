@@ -9,10 +9,14 @@
     "pnpm": ">=9 <10"
   },
   "scripts": {
+    "setup": "./scripts/dev",
+    "dev": "./scripts/dev --ddev",
+    "check": "pnpm format:check && composer validate --no-check-publish && composer lint:php",
+    "agent:next": "printf '%s\n' 'hermes chat -q \"You are the Team Lead / Integrator for this repository. Read README.md, AGENTS.md, project/site-brief.md, project/workflow.md, project/technical-standards.md, project/decisions.md, project/backlog.md, and project/handoffs.md. Tell me what is ready, what is blocked, and what I should do next. Do not edit files unless I ask.\"'",
     "format": "prettier --write . && composer format:php",
     "format:check": "prettier --check .",
     "format:php": "composer format:php",
-    "lint": "pnpm format:check && composer lint:php",
+    "lint": "pnpm check",
     "lint:php": "composer lint:php"
   },
   "devDependencies": {

@@ -1,0 +1,139 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT"
+
+WITH_DDEV=0
+SKIP_INSTALL=0
+SKIP_CHECKS=0
+
+usage() {
+  cat <<'USAGE'
+Usage: ./scripts/dev [options]
+
+One-command local setup/check runner for Drupal Team Launchpad.
+
+Options:
+  --ddev          Start DDEV after installing dependencies.
+  --skip-install Skip pnpm/composer install steps.
+  --skip-checks  Skip verification checks.
+  -h, --help     Show this help.
+
+Default behavior:
+  1. verifies required commands are available
+  2. selects Node with fnm when available
+  3. enables Corepack
+  4. installs pnpm and Composer dependencies
+  5. runs formatting/PHP validation checks
+
+It does not scaffold Drupal. Drupal app scaffolding is a separate deliberate step.
+USAGE
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --ddev)
+      WITH_DDEV=1
+      shift
+      ;;
+    --skip-install)
+      SKIP_INSTALL=1
+      shift
+      ;;
+    --skip-checks)
+      SKIP_CHECKS=1
+      shift
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "Unknown option: $1" >&2
+      usage >&2
+      exit 2
+      ;;
+  esac
+done
+
+need() {
+  if ! command -v "$1" >/dev/null 2>&1; then
+    echo "Missing required command: $1" >&2
+    return 1
+  fi
+}
+
+missing=0
+for cmd in composer; do
+  need "$cmd" || missing=1
+done
+
+if ! command -v pnpm >/dev/null 2>&1 && ! command -v corepack >/dev/null 2>&1; then
+  echo "Missing pnpm and corepack; install Node/Corepack first." >&2
+  missing=1
+fi
+
+if [[ "$WITH_DDEV" -eq 1 ]]; then
+  need ddev || missing=1
+fi
+
+if [[ "$missing" -ne 0 ]]; then
+  echo "\nInstall the missing tools, then rerun: ./scripts/dev" >&2
+  exit 127
+fi
+
+echo "==> Repo: $ROOT"
+
+if command -v fnm >/dev/null 2>&1; then
+  echo "==> Selecting Node version with fnm"
+  # fnm may print shell code requirements depending on installation style.
+  # `fnm use` is still the least surprising project-local command when fnm exists.
+  fnm use
+else
+  echo "==> fnm not found; continuing with current Node: $(node --version 2>/dev/null || echo 'node not found')"
+fi
+
+if command -v corepack >/dev/null 2>&1; then
+  echo "==> Enabling Corepack"
+  corepack enable
+else
+  echo "==> corepack not found; continuing because pnpm is already available"
+fi
+
+if [[ "$SKIP_INSTALL" -eq 0 ]]; then
+  echo "==> Installing Node dependencies"
+  pnpm install --frozen-lockfile
+
+  echo "==> Installing Composer dependencies"
+  composer install
+else
+  echo "==> Skipping dependency installation"
+fi
+
+if [[ "$SKIP_CHECKS" -eq 0 ]]; then
+  echo "==> Running repo checks"
+  pnpm format:check
+  composer validate --no-check-publish
+  composer lint:php
+else
+  echo "==> Skipping checks"
+fi
+
+if [[ "$WITH_DDEV" -eq 1 ]]; then
+  echo "==> Starting DDEV"
+  ddev start
+  ddev describe
+fi
+
+cat <<'NEXT'
+
+Ready.
+
+Useful next commands:
+  ./scripts/dev --ddev        setup/check and start DDEV
+  pnpm check                  run all repo checks
+  pnpm agent:next             print a copy-paste Hermes starter command
+
+Drupal scaffold is intentionally not run by this script.
+NEXT

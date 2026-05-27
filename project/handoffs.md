@@ -19,6 +19,16 @@ Verification performed:
 ## Active Handoffs
 
 Date: 2026-05-27
+From: Team Lead / Integrator
+To: New developers, Hermes/Codex/Claude operators
+Related task: Developer onboarding simplification
+Summary: Added a single local startup command so new contributors do not have to assemble fnm, Corepack, pnpm, Composer, checks, and optional DDEV startup manually.
+Files changed/proposed: `scripts/dev`, `package.json`, `README.md`, `project/launching-agents.md`, `project/decisions.md`, `project/handoffs.md`
+Decisions made: Use `./scripts/dev` as the default first command; use `./scripts/dev --ddev` when the developer also wants DDEV started; keep Drupal scaffolding outside the startup command.
+Open questions: Whether to add equivalent `make setup`/`make dev` aliases for teams that prefer Make over pnpm scripts.
+Verification performed: Ran `./scripts/dev --skip-install --skip-checks`, `pnpm agent:next`, and `pnpm check`; all completed successfully in this worktree.
+
+Date: 2026-05-27
 From: Designer / UX Lead
 To: Team Lead, Drupal Themer, Drupal Module Developer, Writer / Content Strategist
 Related task: T003 Define visual direction and component inventory

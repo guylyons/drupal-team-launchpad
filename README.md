@@ -72,18 +72,32 @@ cd my-drupal-site
 
 Or create a new repository from this one as a GitHub template.
 
-### 2. Install the repo tooling
+### 2. Run the project starter
 
 ```bash
-fnm use
-corepack enable
-pnpm install --frozen-lockfile
-composer install
+./scripts/dev
+```
+
+That one command selects the Node version with fnm when available, enables Corepack, installs pnpm and Composer dependencies, and runs the baseline checks.
+
+To also start DDEV:
+
+```bash
+./scripts/dev --ddev
+```
+
+After dependencies are installed, the short aliases are:
+
+```bash
+pnpm setup       # same as ./scripts/dev
+pnpm dev         # same as ./scripts/dev --ddev
+pnpm check       # run repo checks
+pnpm agent:next  # print a copy-paste Hermes starter command
 ```
 
 The repo includes `.fnmrc`, `.node-version`, and `.nvmrc` so common Node workflows agree. `fnm` is the preferred version manager. pnpm is the package manager. Do not add npm or yarn lockfiles.
 
-### 3. Start DDEV
+### 3. Start DDEV directly
 
 ```bash
 ddev start
