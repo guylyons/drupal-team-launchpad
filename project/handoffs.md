@@ -18,6 +18,16 @@ Verification performed:
 
 ## Active Handoffs
 
+Date: 2026-05-28
+From: Team Lead / Integrator
+To: Drupal operators, Hermes/Codex/Claude operators
+Related task: README simplification and maintenance command battle-test
+Summary: Replaced the bloated README with a shorter operator-focused version, added a reusable Hermes command generator, exposed pnpm aliases for Hermes next/check/core-update/package-update/module workflows, moved Drupal config sync to committed `config/sync`, exported current site config, and verified DDEV/Drush/config/check workflows.
+Files changed/proposed: `README.md`, `package.json`, `scripts/hermes-command`, `.vscode/settings.json`, `.prettierignore`, `web/sites/default/settings.php`, `config/sync/*`, `project/decisions.md`, `project/handoffs.md`
+Decisions made: Keep README short; use `project/` docs for detail; generate copy-paste Hermes maintenance commands through `scripts/hermes-command`; keep Drupal sync config in `config/sync` and ignore exported config from Prettier formatting.
+Open questions: Whether to add Makefile aliases later; whether config export should be trimmed when the project stops using the default Standard install baseline.
+Verification performed: Ran `bash -n scripts/dev scripts/hermes-command`, `pnpm agent:next`, `pnpm hermes:check`, `pnpm hermes:update-core`, `pnpm hermes:update-package drupal/pathauto`, `pnpm hermes:module drupal/pathauto`, `./scripts/dev`, `pnpm check`, `./scripts/dev --skip-install`, `composer audit`, `ddev composer audit`, `ddev drush status`, `ddev drush updatedb -y`, `ddev drush cache:rebuild`, `ddev drush config:status`, `codegraph index .`, `codegraph sync .`, and `codegraph status .`. All final verification commands passed; `ddev drush config:status` reports no differences.
+
 Date: 2026-05-27
 From: Team Lead / Integrator
 To: New developers, Hermes/Codex/Claude operators

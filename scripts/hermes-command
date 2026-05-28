@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  cat <<'USAGE'
+Usage: ./scripts/hermes-command <command> [args]
+
+Print copy-paste Hermes commands for common Drupal Team tasks.
+
+Commands:
+  next                 Team Lead readiness review; no edits.
+  check                Battle-test local setup and checks; fix only clear tooling/docs failures.
+  update-core          Update Drupal core through DDEV, then run Drush/update checks.
+  update-package PKG   Update one Composer package, e.g. drupal/pathauto.
+  module PKG           Require and enable a contributed module, e.g. drupal/pathauto.
+  help                 Show this help.
+
+These commands are intentionally narrow. They tell Hermes to read the repo runbooks,
+use DDEV for Drupal/PHP work, run checks, and stop/report instead of inventing requirements.
+USAGE
+}
+
+single_quote() {
+  # Print a shell-safe single-quoted string. Easier to read than printf %q output.
+  printf "'%s'" "$(printf '%s' "$1" | sed "s/'/'\\\\''/g")"
+}
+
+emit_chat() {
+  local prompt="$1"
+  printf 'hermes chat -q %s\n' "$(single_quote "$prompt")"
+}
+
+cmd="${1:-help}"
+case "$cmd" in
+  next)
+    emit_chat 'You are the Team Lead / Integrator for this Drupal repository. Read README.md, AGENTS.md, project/site-brief.md, project/workflow.md, project/technical-standards.md, project/decisions.md, project/backlog.md, project/handoffs.md, and project/drupal-operations.md. Report what is ready, what is blocked, and the next three small tasks. Do not edit files unless asked.'
+    ;;
+  check)
+    emit_chat 'Battle-test this Drupal repository. Read README.md, AGENTS.md, project/workflow.md, project/technical-standards.md, project/decisions.md, and project/drupal-operations.md. Run ./scripts/dev, pnpm check, composer audit, codegraph status/index if needed, and DDEV/Drush status checks when available. Fix only clear tooling or documentation defects. Report exact commands, results, changed files, and remaining blockers.'
+    ;;
+  update-core)
+    emit_chat 'Update Drupal core in this repository. Read project/drupal-operations.md first. Use DDEV for Composer/Drush commands. Run ddev start, ddev composer validate --no-check-publish, ddev composer audit, ddev composer update drupal/core-* --with-dependencies, ddev drush updatedb -y, ddev drush cache:rebuild, ddev drush config:status, and available repo checks. Export config only if it changed. Stop and report exact failures if Drupal is not installed or cannot bootstrap. Do not invent site requirements.'
+    ;;
+  update-package)
+    pkg="${2:-}"
+    if [[ -z "$pkg" ]]; then
+      echo "Missing package. Example: ./scripts/hermes-command update-package drupal/pathauto" >&2
+      exit 2
+    fi
+    emit_chat "Update Composer package $pkg in this Drupal repository. Read project/drupal-operations.md first. Use DDEV for Composer/Drush commands. Run ddev start, ddev composer validate --no-check-publish, ddev composer audit, ddev composer update $pkg --with-dependencies, ddev drush updatedb -y, ddev drush cache:rebuild, ddev drush config:status, and available repo checks. Export config only if it changed. Stop and report exact failures if Drupal is not installed or cannot bootstrap."
+    ;;
+  module)
+    pkg="${2:-}"
+    if [[ -z "$pkg" ]]; then
+      echo "Missing package. Example: ./scripts/hermes-command module drupal/pathauto" >&2
+      exit 2
+    fi
+    module="${pkg#drupal/}"
+    emit_chat "Require and enable $pkg in this Drupal repository. Read project/drupal-operations.md and project/technical-standards.md first. Use DDEV for Composer/Drush commands. Run ddev start, ddev composer require $pkg, ddev drush pm:enable $module -y, ddev drush updatedb -y, ddev drush cache:rebuild, ddev drush config:export -y if config changed, ddev drush config:status, and available repo checks. Document why the module is needed and stop if the requirement is unclear."
+    ;;
+  help|-h|--help)
+    usage
+    ;;
+  *)
+    echo "Unknown command: $cmd" >&2
+    usage >&2
+    exit 2
+    ;;
+esac

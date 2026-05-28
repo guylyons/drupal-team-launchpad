@@ -10,6 +10,7 @@ web/sites/default/default.services.yml
 web/sites/*/files/
 web/sites/*/private/
 .codegraph/
+config/sync/
 .ddev/
 composer.lock
 pnpm-lock.yaml
